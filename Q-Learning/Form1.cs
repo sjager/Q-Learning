@@ -87,6 +87,8 @@ namespace Q_Learning
                             module.LearnUtility(currentState, nextState, action, reward);
                             GenerateTable(numActions, numStates);
                             this.currentStateTextBox.Text = nextState.ToString();
+                            // Reset best action so there's no confusion to press the button
+                            this.bestActionLabel.Text = "";
                         }
                     }
                 }

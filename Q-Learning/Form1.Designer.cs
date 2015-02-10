@@ -156,7 +156,7 @@ namespace Q_Learning
             this.bestActionLabel.Name = "bestActionLabel";
             this.bestActionLabel.Size = new System.Drawing.Size(13, 13);
             this.bestActionLabel.TabIndex = 12;
-            this.bestActionLabel.Text = "0";
+            this.bestActionLabel.Text = "";
             // 
             // label1
             // 
