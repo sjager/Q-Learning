@@ -49,6 +49,12 @@ namespace Q_Learning
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // numStatesTextBox
@@ -149,14 +155,12 @@ namespace Q_Learning
             this.nextStateTextBox.Size = new System.Drawing.Size(45, 20);
             this.nextStateTextBox.TabIndex = 10;
             // 
-            // bestActionLabel
+            // bestActionTextBox
             // 
-            this.bestActionTextBox.AutoSize = true;
             this.bestActionTextBox.Location = new System.Drawing.Point(880, 33);
-            this.bestActionTextBox.Name = "bestActionLabel";
-            this.bestActionTextBox.Size = new System.Drawing.Size(13, 13);
+            this.bestActionTextBox.Name = "bestActionTextBox";
+            this.bestActionTextBox.Size = new System.Drawing.Size(13, 20);
             this.bestActionTextBox.TabIndex = 12;
-            this.bestActionTextBox.Text = "";
             // 
             // label1
             // 
@@ -212,11 +216,69 @@ namespace Q_Learning
             this.label6.TabIndex = 18;
             this.label6.Text = "Reward";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(267, 14);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(45, 20);
+            this.textBox1.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(232, 17);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Beta";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(319, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Submit beta";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(232, 44);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Alpha";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(319, 37);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Submit Alpha";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(267, 40);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(45, 20);
+            this.textBox2.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 565);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -263,6 +325,12 @@ namespace Q_Learning
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox2;
 
         
     }
