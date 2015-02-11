@@ -49,6 +49,7 @@ namespace Q_Learning
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.RandomActionButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // numStatesTextBox
@@ -110,9 +111,9 @@ namespace Q_Learning
             // 
             // currentStateButton
             // 
-            this.currentStateButton.Location = new System.Drawing.Point(700, 25);
+            this.currentStateButton.Location = new System.Drawing.Point(702, 8);
             this.currentStateButton.Name = "currentStateButton";
-            this.currentStateButton.Size = new System.Drawing.Size(147, 28);
+            this.currentStateButton.Size = new System.Drawing.Size(150, 25);
             this.currentStateButton.TabIndex = 6;
             this.currentStateButton.Text = "Find Best Action";
             this.currentStateButton.UseVisualStyleBackColor = true;
@@ -149,14 +150,12 @@ namespace Q_Learning
             this.nextStateTextBox.Size = new System.Drawing.Size(45, 20);
             this.nextStateTextBox.TabIndex = 10;
             // 
-            // bestActionLabel
+            // bestActionTextBox
             // 
-            this.bestActionTextBox.AutoSize = true;
             this.bestActionTextBox.Location = new System.Drawing.Point(880, 33);
-            this.bestActionTextBox.Name = "bestActionLabel";
-            this.bestActionTextBox.Size = new System.Drawing.Size(13, 13);
+            this.bestActionTextBox.Name = "bestActionTextBox";
+            this.bestActionTextBox.Size = new System.Drawing.Size(13, 20);
             this.bestActionTextBox.TabIndex = 12;
-            this.bestActionTextBox.Text = "";
             // 
             // label1
             // 
@@ -188,16 +187,16 @@ namespace Q_Learning
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(858, 9);
+            this.label4.Location = new System.Drawing.Point(867, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 16;
-            this.label4.Text = "Best Action";
+            this.label4.Text = "Action";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(606, 62);
+            this.label5.Location = new System.Drawing.Point(606, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 17;
@@ -206,17 +205,28 @@ namespace Q_Learning
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(712, 62);
+            this.label6.Location = new System.Drawing.Point(712, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 18;
             this.label6.Text = "Reward";
+            // 
+            // RandomActionButton
+            // 
+            this.RandomActionButton.Location = new System.Drawing.Point(702, 35);
+            this.RandomActionButton.Name = "RandomActionButton";
+            this.RandomActionButton.Size = new System.Drawing.Size(150, 29);
+            this.RandomActionButton.TabIndex = 19;
+            this.RandomActionButton.Text = "Find Random Action";
+            this.RandomActionButton.UseVisualStyleBackColor = true;
+            this.RandomActionButton.Click += new System.EventHandler(this.RandomActionButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 565);
+            this.Controls.Add(this.RandomActionButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -263,6 +273,7 @@ namespace Q_Learning
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button RandomActionButton;
 
         
     }
