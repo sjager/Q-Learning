@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace Q_Learning
         private QLearningModule module;
         private int numStates = 0;
         private int numActions = 0;
+        private int beta = 0;
+        private int alpha = 0;
+        private bool auto = true;
         
         public Form1()
         {
@@ -48,12 +52,16 @@ namespace Q_Learning
             {
                 if (module == null)
                 {
+                    if (alpha > 0)
+                    {
+                        auto = false;
+                    }
                     /*
                      * 
                      * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
                      * 
                      */
-                    module = new QLearningModule(numStates, numActions, 250, true, .8, .2);
+                    module = new QLearningModule(numStates, numActions, 250, auto, alpha, beta);
                     /*
                      * 
                      * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -86,16 +94,24 @@ namespace Q_Learning
                         if (Int32.TryParse(this.bestActionTextBox.Text, out action))
                         {
                             module.LearnUtility(currentState, nextState, action, reward);
-                            GenerateTable(numActions, numStates);
-                            GenerateCountTable(numActions, numStates);
+
+
+                            tableLayoutPanel1.GetControlFromPosition(action, currentState).Text = module.utilityTable.data[numActions*currentState+action].ToString();
+
+                            tableLayoutPanel2.GetControlFromPosition(action, currentState).Text = module.utilityUpdates.data[numActions * currentState + action].ToString();
+                        
                             this.currentStateTextBox.Text = nextState.ToString();
                             // Reset best action so there's no confusion to press the button
                             this.bestActionTextBox.Text = "";
+                            this.turnCounter.Text = module.GetNumberOfUpdates().ToString();
+                            this.totalRewardLabel.Text = module.totalRewardGained.ToString();
+
                         }
                     }
                 }
             }
         }
+
 
         private void GenerateTable(int columnCount, int rowCount)
         {
@@ -129,6 +145,49 @@ namespace Q_Learning
                  tableLayoutPanel1.Controls.Add(l, x, y);
               }
            }
+        }
+
+        private void Export_Click(object sender, EventArgs e)
+        {
+            const string filename = "export.csv";
+            var sb = new StringBuilder();
+            for (var i = 0; i < numStates; i++)
+            {
+                for (var j = 0; j < numActions; j++)
+                {
+                    sb.AppendFormat("{0},", module.utilityTable.data[i*numActions + j]);
+                }
+                sb.Append("\r\n");
+           }
+           File.WriteAllText(filename, sb.ToString());
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int temp;
+            if (Int32.TryParse(this.textBox1.Text, out temp))
+            {
+               beta = temp;
+            }
+
+           }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int temp;
+            if (Int32.TryParse(this.textBox2.Text, out temp))
+            {
+                alpha = temp;
+            }
+
+        }
+
+        private void RandomActionButton_Click(object sender, EventArgs e)
+        {
+            var rand = new Random();
+            this.bestActionTextBox.Text = rand.Next(0, numActions).ToString();
+
         }
 
         private void GenerateCountTable(int columnCount, int rowCount)
