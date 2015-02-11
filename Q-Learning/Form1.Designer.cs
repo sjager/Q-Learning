@@ -49,6 +49,7 @@ namespace Q_Learning
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.Export = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // numStatesTextBox
@@ -87,7 +88,7 @@ namespace Q_Learning
             // 
             // drawTableButton
             // 
-            this.drawTableButton.Location = new System.Drawing.Point(140, 68);
+            this.drawTableButton.Location = new System.Drawing.Point(33, 68);
             this.drawTableButton.Name = "drawTableButton";
             this.drawTableButton.Size = new System.Drawing.Size(71, 23);
             this.drawTableButton.TabIndex = 4;
@@ -149,14 +150,12 @@ namespace Q_Learning
             this.nextStateTextBox.Size = new System.Drawing.Size(45, 20);
             this.nextStateTextBox.TabIndex = 10;
             // 
-            // bestActionLabel
+            // bestActionTextBox
             // 
-            this.bestActionTextBox.AutoSize = true;
             this.bestActionTextBox.Location = new System.Drawing.Point(880, 33);
-            this.bestActionTextBox.Name = "bestActionLabel";
-            this.bestActionTextBox.Size = new System.Drawing.Size(13, 13);
+            this.bestActionTextBox.Name = "bestActionTextBox";
+            this.bestActionTextBox.Size = new System.Drawing.Size(13, 20);
             this.bestActionTextBox.TabIndex = 12;
-            this.bestActionTextBox.Text = "";
             // 
             // label1
             // 
@@ -212,11 +211,22 @@ namespace Q_Learning
             this.label6.TabIndex = 18;
             this.label6.Text = "Reward";
             // 
+            // Export
+            // 
+            this.Export.Location = new System.Drawing.Point(110, 67);
+            this.Export.Name = "Export";
+            this.Export.Size = new System.Drawing.Size(75, 23);
+            this.Export.TabIndex = 19;
+            this.Export.Text = "Export Q-Values";
+            this.Export.UseVisualStyleBackColor = true;
+            this.Export.Click += new System.EventHandler(this.Export_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 565);
+            this.Controls.Add(this.Export);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -263,6 +273,7 @@ namespace Q_Learning
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Export;
 
         
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -127,6 +128,21 @@ namespace Q_Learning
                  tableLayoutPanel1.Controls.Add(l, x, y);
               }
            }
+        }
+
+        private void Export_Click(object sender, EventArgs e)
+        {
+            const string filename = "export.csv";
+            var sb = new StringBuilder();
+            for (var i = 0; i < numStates; i++)
+            {
+                for (var j = 0; j < numActions; j++)
+                {
+                    sb.AppendFormat("{0},", module.utilityTable.data[i*numActions + j]);
+                }
+                sb.Append("\r\n");
+            }
+            File.WriteAllText(filename, sb.ToString());
         }
 
     }
