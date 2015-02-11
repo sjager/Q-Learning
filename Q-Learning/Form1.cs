@@ -148,7 +148,7 @@ namespace Q_Learning
                beta = temp;
             }
 
-        }
+           }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -160,6 +160,11 @@ namespace Q_Learning
 
         }
 
+        private void RandomActionButton_Click(object sender, EventArgs e)
+        {
+            var rand = new Random();
+            this.bestActionTextBox.Text = rand.Next(0, numActions).ToString();
+        }
 
     }
 }
