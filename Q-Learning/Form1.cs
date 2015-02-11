@@ -18,6 +18,9 @@ namespace Q_Learning
         private QLearningModule module;
         private int numStates = 0;
         private int numActions = 0;
+        private int beta = 0;
+        private int alpha = 0;
+        private bool auto = true;
         
         public Form1()
         {
@@ -49,12 +52,16 @@ namespace Q_Learning
             {
                 if (module == null)
                 {
+                    if (alpha > 0)
+                    {
+                        auto = false;
+                    }
                     /*
                      * 
                      * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
                      * 
                      */
-                    module = new QLearningModule(numStates, numActions, 250, true, .8, .2);
+                    module = new QLearningModule(numStates, numActions, 250, auto, alpha, beta);
                     /*
                      * 
                      * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -90,6 +97,9 @@ namespace Q_Learning
                             this.currentStateTextBox.Text = nextState.ToString();
                             // Reset best action so there's no confusion to press the button
                             this.bestActionTextBox.Text = "";
+                            this.turnCounter.Text = module.GetNumberOfUpdates().ToString();
+                            this.totalRewardLabel.Text = module.totalRewardGained.ToString();
+
                         }
                     }
                 }
@@ -141,7 +151,34 @@ namespace Q_Learning
                     sb.AppendFormat("{0},", module.utilityTable.data[i*numActions + j]);
                 }
                 sb.Append("\r\n");
+           }
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int temp;
+            if (Int32.TryParse(this.textBox1.Text, out temp))
+            {
+               beta = temp;
             }
+
+           }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int temp;
+            if (Int32.TryParse(this.textBox2.Text, out temp))
+            {
+                alpha = temp;
+            }
+
+        }
+
+        private void RandomActionButton_Click(object sender, EventArgs e)
+        {
+            var rand = new Random();
+            this.bestActionTextBox.Text = rand.Next(0, numActions).ToString();
             File.WriteAllText(filename, sb.ToString());
         }
 
