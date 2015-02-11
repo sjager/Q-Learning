@@ -49,6 +49,7 @@ namespace Q_Learning
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // numStatesTextBox
@@ -97,6 +98,7 @@ namespace Q_Learning
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.2551F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.7449F));
@@ -105,7 +107,7 @@ namespace Q_Learning
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(908, 381);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(413, 381);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // currentStateButton
@@ -149,14 +151,12 @@ namespace Q_Learning
             this.nextStateTextBox.Size = new System.Drawing.Size(45, 20);
             this.nextStateTextBox.TabIndex = 10;
             // 
-            // bestActionLabel
+            // bestActionTextBox
             // 
-            this.bestActionTextBox.AutoSize = true;
             this.bestActionTextBox.Location = new System.Drawing.Point(880, 33);
-            this.bestActionTextBox.Name = "bestActionLabel";
-            this.bestActionTextBox.Size = new System.Drawing.Size(13, 13);
+            this.bestActionTextBox.Name = "bestActionTextBox";
+            this.bestActionTextBox.Size = new System.Drawing.Size(13, 20);
             this.bestActionTextBox.TabIndex = 12;
-            this.bestActionTextBox.Text = "";
             // 
             // label1
             // 
@@ -212,11 +212,27 @@ namespace Q_Learning
             this.label6.TabIndex = 18;
             this.label6.Text = "Reward";
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.AutoScroll = true;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(503, 127);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(447, 381);
+            this.tableLayoutPanel2.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 565);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -263,6 +279,7 @@ namespace Q_Learning
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 
         
     }
