@@ -42,7 +42,7 @@ namespace Q_Learning
             this.currentStateTextBox = new System.Windows.Forms.TextBox();
             this.rewardGainedTextBox = new System.Windows.Forms.TextBox();
             this.nextStateTextBox = new System.Windows.Forms.TextBox();
-            this.bestActionLabel = new System.Windows.Forms.Label();
+            this.bestActionTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -151,12 +151,12 @@ namespace Q_Learning
             // 
             // bestActionLabel
             // 
-            this.bestActionLabel.AutoSize = true;
-            this.bestActionLabel.Location = new System.Drawing.Point(880, 33);
-            this.bestActionLabel.Name = "bestActionLabel";
-            this.bestActionLabel.Size = new System.Drawing.Size(13, 13);
-            this.bestActionLabel.TabIndex = 12;
-            this.bestActionLabel.Text = "";
+            this.bestActionTextBox.AutoSize = true;
+            this.bestActionTextBox.Location = new System.Drawing.Point(880, 33);
+            this.bestActionTextBox.Name = "bestActionLabel";
+            this.bestActionTextBox.Size = new System.Drawing.Size(13, 13);
+            this.bestActionTextBox.TabIndex = 12;
+            this.bestActionTextBox.Text = "";
             // 
             // label1
             // 
@@ -223,7 +223,7 @@ namespace Q_Learning
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.bestActionLabel);
+            this.Controls.Add(this.bestActionTextBox);
             this.Controls.Add(this.nextStateTextBox);
             this.Controls.Add(this.rewardGainedTextBox);
             this.Controls.Add(this.currentStateTextBox);
@@ -256,7 +256,7 @@ namespace Q_Learning
         private System.Windows.Forms.TextBox currentStateTextBox;
         private System.Windows.Forms.TextBox rewardGainedTextBox;
         private System.Windows.Forms.TextBox nextStateTextBox;
-        private System.Windows.Forms.Label bestActionLabel;
+        private System.Windows.Forms.TextBox bestActionTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

@@ -53,7 +53,7 @@ namespace Q_Learning
                      * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
                      * 
                      */
-                    module = new QLearningModule(numStates, numActions, 250, true, .8, .8);
+                    module = new QLearningModule(numStates, numActions, 250, true, .8, .2);
                     /*
                      * 
                      * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -69,7 +69,7 @@ namespace Q_Learning
             int temp;
             if (Int32.TryParse(this.currentStateTextBox.Text, out temp))
             {
-                this.bestActionLabel.Text = module.BestAction(temp).ToString();
+                this.bestActionTextBox.Text = module.BestAction(temp).ToString();
             }
         }
 
@@ -82,13 +82,13 @@ namespace Q_Learning
                 {
                     if (Int32.TryParse(this.nextStateTextBox.Text, out nextState))
                     {
-                        if (Int32.TryParse(this.bestActionLabel.Text, out action))
+                        if (Int32.TryParse(this.bestActionTextBox.Text, out action))
                         {
                             module.LearnUtility(currentState, nextState, action, reward);
                             GenerateTable(numActions, numStates);
                             this.currentStateTextBox.Text = nextState.ToString();
                             // Reset best action so there's no confusion to press the button
-                            this.bestActionLabel.Text = "";
+                            this.bestActionTextBox.Text = "";
                         }
                     }
                 }

@@ -18,7 +18,14 @@ namespace QLearningAlgorithm
         {
             this.rowCount = rowCount;
             this.colCount = colCount;
-            data = Enumerable.Repeat<double>(defaultValue, rowCount * colCount).ToArray();
+            var rand = new Random();
+            data = new double[rowCount*colCount];
+            for (var i = 0; i < rowCount*colCount; i++)
+            {
+                data[i] = (double)rand.Next(0, 2000);
+            }
+
+            //data = Enumerable.Repeat<double>(rand.Next()*10, rowCount * colCount).ToArray();
         }
 
         public void UpdateValue(int row, int col, double value)
