@@ -13,6 +13,7 @@ namespace QLearningAlgorithm
         private int numActions;
         public NumberTable utilityTable;
         public NumberTable utilityUpdates;
+        public double totalRewardGained = 0;
 
         private double defaultUtility;
         private double learningRate;
@@ -61,6 +62,7 @@ namespace QLearningAlgorithm
         {
             // update the table
             UpdateUtilityTable(state, nextState, action, reward);
+            totalRewardGained += reward;
         }
 
         public void AssignPerfectUtility(int state, int nextState, int action,

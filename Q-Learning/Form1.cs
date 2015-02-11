@@ -97,6 +97,7 @@ namespace Q_Learning
                             // Reset best action so there's no confusion to press the button
                             this.bestActionTextBox.Text = "";
                             this.turnCounter.Text = module.GetNumberOfUpdates().ToString();
+                            this.totalRewardLabel.Text = module.totalRewardGained.ToString();
 
                         }
                     }

@@ -58,6 +58,7 @@ namespace Q_Learning
             this.label9 = new System.Windows.Forms.Label();
             this.turnCounter = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.totalRewardLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // numStatesTextBox
@@ -292,17 +293,27 @@ namespace Q_Learning
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(225, 126);
+            this.label11.Location = new System.Drawing.Point(201, 126);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.Size = new System.Drawing.Size(71, 13);
             this.label11.TabIndex = 27;
-            this.label11.Text = "label11";
+            this.label11.Text = "Total Reward";
+            // 
+            // totalRewardLabel
+            // 
+            this.totalRewardLabel.AutoSize = true;
+            this.totalRewardLabel.Location = new System.Drawing.Point(271, 126);
+            this.totalRewardLabel.Name = "totalRewardLabel";
+            this.totalRewardLabel.Size = new System.Drawing.Size(13, 13);
+            this.totalRewardLabel.TabIndex = 28;
+            this.totalRewardLabel.Text = "0";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 565);
+            this.Controls.Add(this.totalRewardLabel);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.turnCounter);
             this.Controls.Add(this.label9);
@@ -367,6 +378,7 @@ namespace Q_Learning
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label turnCounter;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label totalRewardLabel;
 
         
     }
