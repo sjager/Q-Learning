@@ -55,6 +55,9 @@ namespace Q_Learning
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.turnCounter = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // numStatesTextBox
@@ -106,7 +109,7 @@ namespace Q_Learning
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.2551F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.7449F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(33, 125);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(31, 142);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -268,11 +271,41 @@ namespace Q_Learning
             this.textBox2.Size = new System.Drawing.Size(45, 20);
             this.textBox2.TabIndex = 24;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(235, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Turns:";
+            // 
+            // turnCounter
+            // 
+            this.turnCounter.AutoSize = true;
+            this.turnCounter.Location = new System.Drawing.Point(271, 106);
+            this.turnCounter.Name = "turnCounter";
+            this.turnCounter.Size = new System.Drawing.Size(13, 13);
+            this.turnCounter.TabIndex = 26;
+            this.turnCounter.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(225, 126);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "label11";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 565);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.turnCounter);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label8);
@@ -331,6 +364,9 @@ namespace Q_Learning
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label turnCounter;
+        private System.Windows.Forms.Label label11;
 
         
     }

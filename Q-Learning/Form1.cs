@@ -60,7 +60,7 @@ namespace Q_Learning
                      * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
                      * 
                      */
-                    module = new QLearningModule(numStates, numActions, 250, true, alpha, beta);
+                    module = new QLearningModule(numStates, numActions, 250, auto, alpha, beta);
                     /*
                      * 
                      * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -96,6 +96,8 @@ namespace Q_Learning
                             this.currentStateTextBox.Text = nextState.ToString();
                             // Reset best action so there's no confusion to press the button
                             this.bestActionTextBox.Text = "";
+                            this.turnCounter.Text = module.GetNumberOfUpdates().ToString();
+
                         }
                     }
                 }
@@ -156,6 +158,7 @@ namespace Q_Learning
             }
 
         }
+
 
     }
 }
