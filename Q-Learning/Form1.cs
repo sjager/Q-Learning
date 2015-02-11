@@ -69,6 +69,7 @@ namespace Q_Learning
                      */
                 }
                 GenerateTable(numActions, numStates);
+                GenerateCountTable(numActions, numStates);
             }
         }
 
@@ -93,7 +94,12 @@ namespace Q_Learning
                         if (Int32.TryParse(this.bestActionTextBox.Text, out action))
                         {
                             module.LearnUtility(currentState, nextState, action, reward);
-                            GenerateTable(numActions, numStates);
+
+
+                            tableLayoutPanel1.GetControlFromPosition(action, currentState).Text = module.utilityTable.data[numActions*currentState+action].ToString();
+
+                            tableLayoutPanel2.GetControlFromPosition(action, currentState).Text = module.utilityUpdates.data[numActions * currentState + action].ToString();
+                        
                             this.currentStateTextBox.Text = nextState.ToString();
                             // Reset best action so there's no confusion to press the button
                             this.bestActionTextBox.Text = "";
@@ -105,6 +111,7 @@ namespace Q_Learning
                 }
             }
         }
+
 
         private void GenerateTable(int columnCount, int rowCount)
         {
@@ -152,6 +159,7 @@ namespace Q_Learning
                 }
                 sb.Append("\r\n");
            }
+           File.WriteAllText(filename, sb.ToString());
         }
 
 
@@ -179,7 +187,47 @@ namespace Q_Learning
         {
             var rand = new Random();
             this.bestActionTextBox.Text = rand.Next(0, numActions).ToString();
-            File.WriteAllText(filename, sb.ToString());
+
+        }
+
+        private void GenerateCountTable(int columnCount, int rowCount)
+        {
+            //Clear out the existing controls, we are generating a new table layout
+            tableLayoutPanel2.Controls.Clear();
+
+            //Clear out the existing row and column styles
+            tableLayoutPanel2.ColumnStyles.Clear();
+            tableLayoutPanel2.RowStyles.Clear();
+
+            //Now we will generate the table, setting up the row and column counts first
+            tableLayoutPanel2.ColumnCount = columnCount;
+            tableLayoutPanel2.RowCount = rowCount;
+
+            for (int x = 0; x < columnCount; x++)
+            {
+                //First add a column
+                tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50));
+
+                for (int y = 0; y < rowCount; y++)
+                {
+                    //Next, add a row.  Only do this when once, when creating the first column
+                    if (x == 0)
+                    {
+                        tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50));
+                    }
+
+                    Label l = new Label();
+                    //l.Margin = new Padding(1);
+
+                    //l.Dock = DockStyle.Fill;
+                    //l.TextAlign = ContentAlignment.MiddleCenter;
+                    //l.AutoSize = false;
+
+                    l.Text = module.utilityUpdates.GetValue(y, x).ToString();
+                    //l.Text = module.utilityTable.data[y * columnCount + x].ToString();         //Finally, add the control to the correct location in the table
+                    tableLayoutPanel2.Controls.Add(l, x, y);
+                }
+            }
         }
 
     }

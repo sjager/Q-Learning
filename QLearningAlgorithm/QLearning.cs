@@ -11,10 +11,11 @@ namespace QLearningAlgorithm
     {
         private int numStates;
         private int numActions;
+
         public NumberTable utilityTable;
         public NumberTable utilityUpdates;
-        public double totalRewardGained = 0;
 
+        public double totalRewardGained;
         private double defaultUtility;
         private double learningRate;
         private double discountRate;
@@ -53,7 +54,7 @@ namespace QLearningAlgorithm
             totalNumUpdates = 0;
 
             // create the collections
-            utilityTable = new NumberTable(numStates, numActions, pDefaultUtility);
+            utilityTable = new NumberTable(numStates, numActions, null);
             utilityUpdates = new NumberTable(numStates, numActions, 0);
         }
 

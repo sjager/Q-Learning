@@ -14,7 +14,7 @@ namespace QLearningAlgorithm
         public int rowCount;
         public int colCount;
 
-        public NumberTable(int rowCount, int colCount, double defaultValue)
+        public NumberTable(int rowCount, int colCount, double? defaultValue)
         {
             this.rowCount = rowCount;
             this.colCount = colCount;
@@ -22,7 +22,7 @@ namespace QLearningAlgorithm
             data = new double[rowCount*colCount];
             for (var i = 0; i < rowCount*colCount; i++)
             {
-                data[i] = (double)rand.Next(0, 2000);
+                data[i] = defaultValue ?? (double)rand.Next(0, 2000);
             }
 
             //data = Enumerable.Repeat<double>(rand.Next()*10, rowCount * colCount).ToArray();

@@ -61,6 +61,7 @@ namespace Q_Learning
             this.totalRewardLabel = new System.Windows.Forms.Label();
             this.RandomActionButton = new System.Windows.Forms.Button();
             this.Export = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // numStatesTextBox
@@ -109,6 +110,7 @@ namespace Q_Learning
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.2551F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.7449F));
@@ -117,7 +119,7 @@ namespace Q_Learning
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(908, 381);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(413, 381);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // currentStateButton
@@ -330,6 +332,21 @@ namespace Q_Learning
             this.Export.UseVisualStyleBackColor = true;
             this.Export.Click += new System.EventHandler(this.Export_Click);
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.AutoScroll = true;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(503, 127);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(447, 381);
+            this.tableLayoutPanel2.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,6 +364,7 @@ namespace Q_Learning
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.RandomActionButton);
             this.Controls.Add(this.Export);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -405,6 +423,7 @@ namespace Q_Learning
         private System.Windows.Forms.Label totalRewardLabel;
         private System.Windows.Forms.Button RandomActionButton;
         private System.Windows.Forms.Button Export;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 
         
     }
