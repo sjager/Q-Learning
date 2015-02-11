@@ -60,6 +60,7 @@ namespace Q_Learning
             this.label11 = new System.Windows.Forms.Label();
             this.totalRewardLabel = new System.Windows.Forms.Label();
             this.RandomActionButton = new System.Windows.Forms.Button();
+            this.Export = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // numStatesTextBox
@@ -98,7 +99,7 @@ namespace Q_Learning
             // 
             // drawTableButton
             // 
-            this.drawTableButton.Location = new System.Drawing.Point(140, 68);
+            this.drawTableButton.Location = new System.Drawing.Point(33, 68);
             this.drawTableButton.Name = "drawTableButton";
             this.drawTableButton.Size = new System.Drawing.Size(71, 23);
             this.drawTableButton.TabIndex = 4;
@@ -319,6 +320,16 @@ namespace Q_Learning
             this.RandomActionButton.UseVisualStyleBackColor = true;
             this.RandomActionButton.Click += new System.EventHandler(this.RandomActionButton_Click);
             // 
+            // Export
+            // 
+            this.Export.Location = new System.Drawing.Point(110, 67);
+            this.Export.Name = "Export";
+            this.Export.Size = new System.Drawing.Size(75, 23);
+            this.Export.TabIndex = 19;
+            this.Export.Text = "Export Q-Values";
+            this.Export.UseVisualStyleBackColor = true;
+            this.Export.Click += new System.EventHandler(this.Export_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,6 +346,7 @@ namespace Q_Learning
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.RandomActionButton);
+            this.Controls.Add(this.Export);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -392,6 +404,7 @@ namespace Q_Learning
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label totalRewardLabel;
         private System.Windows.Forms.Button RandomActionButton;
+        private System.Windows.Forms.Button Export;
 
         
     }

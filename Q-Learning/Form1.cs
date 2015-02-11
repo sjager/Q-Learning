@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -139,6 +140,20 @@ namespace Q_Learning
            }
         }
 
+        private void Export_Click(object sender, EventArgs e)
+        {
+            const string filename = "export.csv";
+            var sb = new StringBuilder();
+            for (var i = 0; i < numStates; i++)
+            {
+                for (var j = 0; j < numActions; j++)
+                {
+                    sb.AppendFormat("{0},", module.utilityTable.data[i*numActions + j]);
+                }
+                sb.Append("\r\n");
+           }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -164,6 +179,7 @@ namespace Q_Learning
         {
             var rand = new Random();
             this.bestActionTextBox.Text = rand.Next(0, numActions).ToString();
+            File.WriteAllText(filename, sb.ToString());
         }
 
     }
