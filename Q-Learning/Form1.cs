@@ -23,6 +23,11 @@ namespace Q_Learning
         private bool auto = true;
         
         private bool isInitialized = false;
+        private bool randomActionTaken = false;
+
+        private LoopFinderForm lfForm = new LoopFinderForm();
+
+        private List<Tuple> tupleHistory = new List<Tuple>();
 
         public Form1()
         {
@@ -84,6 +89,7 @@ namespace Q_Learning
 
         public void EnterCurrentState(object sender, System.EventArgs e)
         {
+            randomActionTaken = false;
             int temp;
             if (Int32.TryParse(this.currentStateTextBox.Text, out temp))
             {
@@ -104,6 +110,40 @@ namespace Q_Learning
                         {
                             module.LearnUtility(currentState, nextState, action, reward);
 
+                            Tuple newTuple = new Tuple()
+                            {
+                                currentState = currentStateTextBox.Text,
+                                action = bestActionTextBox.Text,
+                                nextState = nextStateTextBox.Text
+                            };
+                            
+                            if (randomActionTaken)
+                            {
+                                tupleHistory.Clear();
+                            }
+
+                            bool foundLoop = SearchForLoops(newTuple);
+
+                            tupleHistory.Add(newTuple);
+                            lfForm.AddRow(newTuple);
+
+                            if (randomActionTaken)
+                            {
+                                lfForm.DenoteRandom();
+                                randomActionTaken = false;
+                            }
+
+                            if (foundLoop)
+                            {
+
+                                int indexOfLoop = tupleHistory.IndexOf(newTuple);
+                                int loopLength = tupleHistory.Count - indexOfLoop + 1;
+
+                                lfForm.HighlightLoop(loopLength, randomActionTaken);
+                                tupleHistory.Clear();
+                                tupleHistory.Add(newTuple);
+                                foundLoop = false;
+                            }
 
                             tableLayoutPanel1.GetControlFromPosition(action, currentState).Text = module.utilityTable.data[numActions*currentState+action].ToString();
 
@@ -121,6 +161,14 @@ namespace Q_Learning
             }
         }
 
+        public bool SearchForLoops(Tuple newTuple)
+        {
+            if (tupleHistory.Contains(newTuple))
+            {
+                return true;
+            }
+            return false;
+        }
 
         private void GenerateTable(int columnCount, int rowCount)
         {
@@ -194,6 +242,7 @@ namespace Q_Learning
 
         private void RandomActionButton_Click(object sender, EventArgs e)
         {
+            randomActionTaken = true;
             var rand = new Random();
             this.bestActionTextBox.Text = rand.Next(0, numActions).ToString();
 
@@ -242,6 +291,11 @@ namespace Q_Learning
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void OpenLoopFinderButton_Click(object sender, EventArgs e)
+        {
+            lfForm.Show();
         }
 
     }

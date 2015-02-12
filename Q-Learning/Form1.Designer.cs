@@ -62,6 +62,7 @@ namespace Q_Learning
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.OpenLoopFinderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // numStatesTextBox
@@ -346,11 +347,22 @@ namespace Q_Learning
             this.label12.TabIndex = 30;
             this.label12.Text = "number of actions";
             // 
+            // OpenLoopFinderButton
+            // 
+            this.OpenLoopFinderButton.Location = new System.Drawing.Point(33, 97);
+            this.OpenLoopFinderButton.Name = "OpenLoopFinderButton";
+            this.OpenLoopFinderButton.Size = new System.Drawing.Size(75, 23);
+            this.OpenLoopFinderButton.TabIndex = 31;
+            this.OpenLoopFinderButton.Text = "Loop Finder";
+            this.OpenLoopFinderButton.UseVisualStyleBackColor = true;
+            this.OpenLoopFinderButton.Click += new System.EventHandler(this.OpenLoopFinderButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 565);
+            this.Controls.Add(this.OpenLoopFinderButton);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.totalRewardLabel);
@@ -423,6 +435,7 @@ namespace Q_Learning
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button OpenLoopFinderButton;
 
         
     }
