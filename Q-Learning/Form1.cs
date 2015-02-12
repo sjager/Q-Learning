@@ -110,11 +110,18 @@ namespace Q_Learning
                         {
                             module.LearnUtility(currentState, nextState, action, reward);
 
+                            int temp = module.utilityTable.GetRowMaxColumn(currentState);
+                            double val = module.utilityTable.GetValue(currentState,temp);
+
                             Tuple newTuple = new Tuple()
                             {
                                 currentState = currentStateTextBox.Text,
                                 action = bestActionTextBox.Text,
-                                nextState = nextStateTextBox.Text
+                                nextState = nextStateTextBox.Text,
+                                reward = Int32.Parse(rewardGainedTextBox.Text),
+                                Qval = module.utilityTable.GetValue(currentState, action),
+                                Vval = val,
+
                             };
                             
                             if (randomActionTaken)

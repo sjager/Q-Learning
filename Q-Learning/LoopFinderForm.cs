@@ -28,6 +28,18 @@ namespace Q_Learning
             var stateCol = new DataGridViewTextBoxColumn();
             var actionCol = new DataGridViewTextBoxColumn();
             var nextStateCol = new DataGridViewTextBoxColumn();
+            var rewardCol = new DataGridViewTextBoxColumn();
+            var QCol = new DataGridViewTextBoxColumn();
+            var VCol = new DataGridViewTextBoxColumn();
+
+            rewardCol.HeaderText = "Reward";
+            rewardCol.Name = "RewardColumn";
+
+            QCol.HeaderText = "Q()";
+            QCol.Name = "QColumn";
+
+            VCol.HeaderText = "V()";
+            VCol.Name = "VColumn";
 
             stateCol.HeaderText = "State";
             stateCol.Name = "StateColumn";
@@ -38,13 +50,13 @@ namespace Q_Learning
             nextStateCol.HeaderText = "NextState";
             nextStateCol.Name = "NextStateColumn";
 
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { stateCol, actionCol, nextStateCol });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { stateCol, actionCol, nextStateCol, rewardCol, QCol, VCol });
 
         }
 
         public void AddRow(Tuple tuple)
         {
-            dataGridView1.Rows.Add(tuple.currentState, tuple.action, tuple.nextState);
+            dataGridView1.Rows.Add(tuple.currentState, tuple.action, tuple.nextState, tuple.reward, tuple.Qval, tuple.Vval);
         }
 
         public void HighlightLoop(int completeLoopLength, bool randomActionTaken)

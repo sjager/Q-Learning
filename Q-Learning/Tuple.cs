@@ -11,6 +11,10 @@ namespace Q_Learning
         public string currentState;
         public string action;
         public string nextState;
+        public int reward;
+        public string actionBy;
+        public double Qval;
+        public double Vval;
 
         public override bool Equals(object obj)
         {
