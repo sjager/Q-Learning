@@ -22,12 +22,14 @@ namespace Q_Learning
         private int alpha = 0;
         private bool auto = true;
         
+        private bool isInitialized = false;
+
         public Form1()
         {
             InitializeComponent();
             
         }
-
+        /*
         public void SaveNumStates(object sender, System.EventArgs e)
         {
             int temp;
@@ -45,9 +47,16 @@ namespace Q_Learning
                 numActions = temp;
             }
         }
-
+        */
         public void DrawTable(object sender, System.EventArgs e)
         {
+            if (!isInitialized)
+            {
+                isInitialized = true;
+                Int32.TryParse(numStatesTextBox.Text, out numStates);
+                Int32.TryParse(numActionsTextBox.Text, out numActions);
+
+            }
             if (numActions > 0 && numStates > 0)
             {
                 if (module == null)
@@ -228,6 +237,11 @@ namespace Q_Learning
                     tableLayoutPanel2.Controls.Add(l, x, y);
                 }
             }
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
